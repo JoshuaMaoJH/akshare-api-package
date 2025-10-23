@@ -32,8 +32,8 @@ pip install akshare-api
 ### 从源码安装
 
 ```bash
-git clone https://github.com/JoshuaMaoJH/akshare-api.git
-cd akshare-api
+git clone https://github.com/JoshuaMaoJH/akshare-api-package.git
+cd akshare-api-package
 pip install -e .
 ```
 
@@ -600,9 +600,9 @@ api.stop_service()
 
 ## 📞 联系方式
 
-- 项目地址：https://github.com/JoshuaMaoJH/akshare-api
-- 问题反馈：https://github.com/JoshuaMaoJH/akshare-api/issues
-- 文档地址：https://github.com/JoshuaMaoJH/akshare-api#readme
+- 项目地址：https://github.com/JoshuaMaoJH/akshare-api-package
+- 问题反馈：https://github.com/JoshuaMaoJH/akshare-api-package/issues
+- 文档地址：https://github.com/JoshuaMaoJH/akshare-api-package#readme
 
 如有任何问题或建议，欢迎通过Issue与我们联系。
 
