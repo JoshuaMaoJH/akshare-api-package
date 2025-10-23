@@ -1,0 +1,125 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "akshare-api"
+version = "1.1.0"
+description = "基于AKTools公开API的AKShare股票数据接口Python调用库"
+readme = "README.md"
+license = "MIT"
+authors = [
+    {name = "JMTechPower", email = "joshua.maojh@gmail.com"}
+]
+maintainers = [
+    {name = "JMTechPower", email = "joshua.maojh@gmail.com"}
+]
+keywords = ["akshare", "stock", "finance", "api", "data", "trading", "china", "market"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "requests>=2.25.0",
+    "pandas>=1.3.0",
+    "numpy>=1.20.0",
+    "aktools>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.800",
+    "sphinx>=4.0",
+    "sphinx-rtd-theme>=0.5",
+]
+docs = [
+    "sphinx>=4.0",
+    "sphinx-rtd-theme>=0.5",
+    "myst-parser>=0.15",
+]
+
+[project.urls]
+Homepage = "https://github.com/JoshuaMaoJH/akshare-api"
+Documentation = "https://github.com/JoshuaMaoJH/akshare-api#readme"
+Repository = "https://github.com/JoshuaMaoJH/akshare-api.git"
+"Bug Tracker" = "https://github.com/JoshuaMaoJH/akshare-api/issues"
+Changelog = "https://github.com/JoshuaMaoJH/akshare-api/blob/main/CHANGELOG.md"
+
+[project.scripts]
+akshare-api = "akshare_api.cli:main"
+
+[tool.setuptools]
+packages = ["akshare_api"]
+
+[tool.setuptools.package-data]
+akshare_api = ["*.json", "*.yaml", "*.yml"]
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=akshare_api",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+
+[tool.mypy]
+python_version = "3.7"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "requests.*",
+    "pandas.*",
+    "numpy.*",
+]
+ignore_missing_imports = true
